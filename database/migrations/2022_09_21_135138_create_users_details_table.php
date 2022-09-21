@@ -18,6 +18,11 @@ class CreateUsersDetailsTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->timestamps();
+
+// collego user a user detail
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users');
         });
     }
 
