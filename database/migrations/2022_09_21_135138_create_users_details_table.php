@@ -24,7 +24,7 @@ class CreateUsersDetailsTable extends Migration
             ->references('id')
             ->on('users');
         });
-      
+      Schema::rename('users', 'user');
     }
 
     /**

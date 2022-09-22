@@ -13,4 +13,7 @@ class posts extends Model
         'post_content',
         'post_date',
     ];
+    public function userDetails(){
+        return $this->belongsTo('App\User');
+    }
 }
