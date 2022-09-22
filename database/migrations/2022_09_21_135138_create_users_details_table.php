@@ -13,7 +13,7 @@ class CreateUsersDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_details', function (Blueprint $table) {
+        Schema::create('user_details', function (Blueprint $table) {
             $table->id('user_id');
             $table->string('address');
             $table->string('phone');
@@ -24,7 +24,7 @@ class CreateUsersDetailsTable extends Migration
             ->references('id')
             ->on('users');
         });
-      Schema::rename('users', 'user');
+      
     }
 
     /**
@@ -34,6 +34,6 @@ class CreateUsersDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_details');
+        Schema::dropIfExists('user_details');
     }
 }
