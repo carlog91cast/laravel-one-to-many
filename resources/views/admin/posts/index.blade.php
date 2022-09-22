@@ -28,11 +28,12 @@
                         <td><button class="btn btn-secondary"><a class="text-decoration-none text-white"
                                     href="{{ route('admin.posts.create', $post->id) }}">Create</a></button></td>
                         <td>
-                            <form class="form-delete" action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+                            <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger"><a class="text-decoration-none text-white"
-                                        href="">Delete</a></button>
+                                <button type="submit" class="btn btn-danger" value="delete">
+                                    delete
+                                </button>
                             </form>
                         </td>
                     </tr>

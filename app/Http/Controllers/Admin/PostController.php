@@ -53,6 +53,7 @@ class PostController extends Controller
         // );
 
         $post = new Posts();
+        $post->user_id = 121;
         $post->author = $sentData['author'];
         $post->title = $sentData['title'];
         $post->post_image = $sentData['post_image'];
@@ -111,8 +112,11 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
+    
         $post = Posts::findOrFail($id);
         $post->delete();
-        return redirect()->route('admin.posts.index')->with('delete', $post->title);
+        // return redirect()->route('admin.posts.index')->with('delete', Posts::all());
+        $posts = Posts::all();
+        return redirect()->route('admin.posts.index', compact('posts'));
     }
 }

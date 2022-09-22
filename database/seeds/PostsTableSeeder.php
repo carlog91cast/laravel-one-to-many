@@ -16,14 +16,16 @@ class PostsTableSeeder extends Seeder
     public function run(Faker $faker)
     {
         $user = user::all();
-        for ($i=0; $i < 50; $i++) { 
+        for ($i=0; $i < count($user); $i++) { 
+            
             $newPost = new Posts();
-            $newPost->user_id = $faker->userId();
+            $newPost->user_id = $user[$i]->id;
             $newPost->title = $faker->realText(35);
             $newPost->author = $faker->userName();
             $newPost->post_date = $faker->dateTimeThisYear();
             $newPost->post_image = $faker->imageUrl();
             $newPost->post_content = $faker->paragraph(5, false);
+        
             $newPost->save();
         }
     }
